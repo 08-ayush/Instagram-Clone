@@ -61,7 +61,7 @@ const ProfileHeader = () => {
           <Flex gap={4} alignItems={"center"} justifyContent={"center"}>
             <Button
               bg={"blue.500"}
-              color={"white"}
+              color={"black"}
               _hover={{ bg: "blue.600" }}
               size={{ base: "xs", md: "sm" }}
             >
