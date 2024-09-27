@@ -1,4 +1,4 @@
-import { Avatar, Flex, Text, Button } from "@chakra-ui/react";
+import { Avatar, Button, Flex, Text } from "@chakra-ui/react";
 import useLogout from "../../hooks/useLogout";
 import useAuthStore from "../../store/authStore";
 import { Link } from "react-router-dom";

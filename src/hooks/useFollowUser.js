@@ -18,16 +18,14 @@ const useFollowUser = (userId) => {
 		try {
 			const currentUserRef = doc(firestore, "users", authUser.uid);
 			const userToFollowOrUnfollorRef = doc(firestore, "users", userId);
-            // Update current user (authUser) following list
 			await updateDoc(currentUserRef, {
 				following: isFollowing ? arrayRemove(userId) : arrayUnion(userId),
 			});
-  
-   // Update target user (user being followed/unfollowed) followers list
+
 			await updateDoc(userToFollowOrUnfollorRef, {
 				followers: isFollowing ? arrayRemove(authUser.uid) : arrayUnion(authUser.uid),
 			});
-    // If unfollowing, remove userId from authUser's following array and current user's UID from userProfile's followers ar
+
 			if (isFollowing) {
 				// unfollow
 				setAuthUser({
@@ -49,7 +47,6 @@ const useFollowUser = (userId) => {
 				);
 				setIsFollowing(false);
 			} else {
-                // If following, add userId to authUser's following array and current user's UID to userProfile's followers array
 				// follow
 				setAuthUser({
 					...authUser,
@@ -61,7 +58,6 @@ const useFollowUser = (userId) => {
 						...userProfile,
 						followers: [...userProfile.followers, authUser.uid],
 					});
-                      // Persist the authUser data (following) in localStorage
 
 				localStorage.setItem(
 					"user-info",
@@ -74,7 +70,7 @@ const useFollowUser = (userId) => {
 			}
 		} catch (error) {
 			showToast("Error", error.message, "error");
-		} finally {
+		} finally { 
 			setIsUpdating(false);
 		}
 	};
