@@ -45,6 +45,7 @@ const CreatePost = () => {
 			setSelectedFile(null);
 		} catch (error) {
 			showToast("Error", error.message, "error");
+			
 		}
 	};
 
