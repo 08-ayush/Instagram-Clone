@@ -78,8 +78,8 @@ const ImageGallery = () => {
 					<Image 
 						src={sr} 
 						alt={`Image ${idx + 1}`} 
-						w={"65px"} 
-						h={"65px"} 
+						w="65px"
+						h="65px" 
 						borderRadius={"full"} 
 						objectFit={"cover"} 
 						scrollBehavior={"smooth"}
